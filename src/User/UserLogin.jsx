@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Alert, Button, Form, Container, Row, Col } from "react-bootstrap";
+import Nav from 'react-bootstrap/Nav';
+
 import "../css/UserLogin.css"
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -17,7 +19,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(`${server_url}/users/userLogin`, {
-        username,
+        account:username,
         password,
       });
 
@@ -100,7 +102,10 @@ const Login = () => {
           </div>
 
           <button type="submit" className="login-button">
-            Login
+          כניסה
+          </button>
+          <button type="submit" className="btn">
+          <Nav.Link href="/register">או לחצ/י כאן להרשם</Nav.Link>
           </button>
         </form>
 
